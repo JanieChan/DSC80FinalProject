@@ -6,10 +6,10 @@ By: Janie Chan (jlc006@ucsd.edu)
 
 ## Data Cleaning and Exploratory Data Analysis
 
-##Assessment of Missingness
+## Assessment of Missingness
 
 ## Hypothesis Testing
 ## Framing a Prediction Problem
-##Baseline Model
-##Final Model
-##Fairness Analysis
+## Baseline Model
+## Final Model
+## Fairness Analysis
