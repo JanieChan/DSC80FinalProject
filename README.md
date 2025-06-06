@@ -32,7 +32,18 @@ There are a total of 150588 rows in the dataset
 As the dataset initially included 150588 rows × 163 columns, I have brought it down to 7 columns. 
 
 Display of the head of the Dataframe:
-print(df[['gameid', 'position', 'kills', 'total cs', 'minionkills', 'monsterkills', 'cspm']].head().to_markdown(index=False))
+
+`print(df[['gameid', 'position', 'kills', 'total cs', 'minionkills', 'monsterkills', 'cspm']].head().to_markdown(index=False))`
+
+| gameid                | position   |   kills |   total cs |   minionkills |   monsterkills |   cspm |
+|:----------------------|:-----------|--------:|-----------:|--------------:|---------------:|-------:|
+| ESPORTSTMNT01_2690210 | top        |       2 |        231 |           220 |             11 | 8.0911 |
+| ESPORTSTMNT01_2690210 | jng        |       2 |        148 |            33 |            115 | 5.1839 |
+| ESPORTSTMNT01_2690210 | mid        |       2 |        193 |           177 |             16 | 6.7601 |
+| ESPORTSTMNT01_2690210 | bot        |       2 |        226 |           208 |             18 | 7.9159 |
+| ESPORTSTMNT01_2690210 | sup        |       1 |         42 |            42 |              0 | 1.4711 |
+
+
 
 ## Assessment of Missingness
 
