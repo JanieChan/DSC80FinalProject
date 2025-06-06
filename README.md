@@ -29,6 +29,10 @@ There are a total of 150588 rows in the dataset
 : The calculated cs per minute which is the total creep score of each player divided by the total minutes of the match.
 
 ## Data Cleaning and Exploratory Data Analysis
+As the dataset initially included 150588 rows × 163 columns, I have brought it down to 7 columns. 
+
+Display of the head of the Dataframe:
+print(df[['gameid', 'position', 'kills', 'total cs', 'minionkills', 'monsterkills', 'cspm']].head().to_markdown(index=False))
 
 ## Assessment of Missingness
 
