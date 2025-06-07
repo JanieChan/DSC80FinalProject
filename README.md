@@ -51,6 +51,7 @@ Display of the head of the Dataframe:
   height="400"
   frameborder="0"
 ></iframe>
+In this Histogram, we can clearly see a trend of an exponential decrease. This shows that as the amount of kills increases, the amount of players with that amount of kills decreases.
 
 <iframe
   src="assets/his_cs.html"
@@ -73,6 +74,7 @@ Display of the head of the Dataframe:
   height="600"
   frameborder="0"
 ></iframe>
+In this scatter plot comparing the total cs score and minion kills, the data is increasing linearly. While looking at the plot, I've noticed that there is a very strong line of data.
 
 ### Interesting Aggregates
 `print(df_grouped[['position', 'kills', 'total cs', 'minionkills', 'monsterkills', 'cspm']].head().to_markdown(index=False))`
@@ -86,6 +88,9 @@ Display of the head of the Dataframe:
 | top        | 2.79644  |   247.337  |      232.63   |       15.1276  | 7.86113 |
 
 ## Assessment of Missingness
+### NMAR Analysis
+I believe that the columns `monsterkillsownjungle` and `monsterkillsenemyjungle` are Not Missing At Random NMAR. They do not rely on any other observed columns.
+
 
 ## Hypothesis Testing
 
@@ -101,7 +106,7 @@ Display of the head of the Dataframe:
 **Signifiance Level:**
 : 0.05 or 5%
 
-The result of running the ANOVA test on 
+The result of running this hypothesis test returned a p-value of 0.00. From this, we can reject the null hypothesis that the average kills in-game are equal across all positions. Though the p-value is 0.00, this doesn't mean that it is impossible for the null hypothesis. Remember, we are analyzing the professional league so this may have impacted the results.
 
 <iframe
   src="assets/pos_kills.html"
@@ -120,9 +125,7 @@ The result of running the ANOVA test on
 **Response Variable:**
 : Position (Top, Bot, Jungle, Mid, Support)
 
-I chose this variable because each position is unique and contributes to the game differently. Being able to predict the role of the player based on the stats that they generate throughout the game can be valuable in analyzing whether the player has efficiently played their role.
-
-Creep Score / time prediction the total creep score
+I chose this variable because each position is unique and contributes to the game differently. Being able to predict the role of the player based on the stats that they generate throughout the game can be valuable in analyzing whether the player has efficiently played their role. The stats used were all collected post-game.
 
 **Metric:**
 : Accuracy
@@ -131,5 +134,35 @@ I believe that using accuracy as the metric over F1-score is a better choice for
 
 
 ## Baseline Model
+In my Baseline Model, I used the RandomForestClassifer and had 3 features. I had 2 quantitative features which are `cspm` and `total cs`. For the last feature, `position` is a categorical feature.
+
+The resulting accuracy is 55.18% which is not that good and definitely could be improved on.
+
 ## Final Model
+The two new features that I added to the model are `minionkills` and `monsterkills`. I believe these are good for my prediction task because from my Interesting Aggregates section, the mean of these features differs significantly based on the position. The accuracy from adding these two features increased to 64.27%
+
 ## Fairness Analysis
+**Group X:**
+: Players with total cs <= 200
+
+**Group Y:**
+: Players with total cs > 200
+
+
+**Evaluation Metric:**
+: Precision
+
+**Null Hypothesis:**
+: Our model is fair. Its precision for players with total cs greater than 200 and players with total cs less than or equal to 200 are roughly the same, and any differences are due to random chance.
+
+**Alternative Hypothesis:**
+: Our model is unfair. Its precision for players with total cs greater than 200 and players with total cs less than or equal to 200 are not roughly the same.
+
+**Test Statistics:**
+: The absolute difference in precision between Group X (total CS ≤ 200) and Group Y (total CS > 200)
+
+**Significance Level:**
+: 0.05 or 5%
+
+The resulting p-value I got is 0.0000. Due to 0.0000 being less than our significance level of 0.05, we can reject our null hypothesis and conclude that the precision between Group X and Group Y are not roughly the same.
+
