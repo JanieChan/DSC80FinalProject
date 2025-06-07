@@ -29,11 +29,12 @@ There are a total of 150588 rows in the dataset
 : The calculated cs per minute which is the total creep score of each player divided by the total minutes of the match.
 
 ## Data Cleaning and Exploratory Data Analysis
-As the dataset initially included 150588 rows × 163 columns, I have brought it down to 7 columns. 
+### Data Cleaning
+As the dataset initially included 150588 rows × 163 columns, I have brought it down to 125490 rows × 7 columns.  
 
 Display of the head of the Dataframe:
 
-`print(df[['gameid', 'position', 'kills', 'total cs', 'minionkills', 'monsterkills', 'cspm']].head().to_markdown(index=False))`
+`print(df_cleaned[['gameid', 'position', 'kills', 'total cs', 'minionkills', 'monsterkills', 'cspm']].head().to_markdown(index=False))`
 
 | gameid                | position   |   kills |   total cs |   minionkills |   monsterkills |   cspm |
 |:----------------------|:-----------|--------:|-----------:|--------------:|---------------:|-------:|
@@ -43,7 +44,11 @@ Display of the head of the Dataframe:
 | ESPORTSTMNT01_2690210 | bot        |       2 |        226 |           208 |             18 | 7.9159 |
 | ESPORTSTMNT01_2690210 | sup        |       1 |         42 |            42 |              0 | 1.4711 |
 
+### Univariate Analysis
 
+### Bivariate Analysis
+
+### Interesting Aggregates
 
 ## Assessment of Missingness
 
@@ -56,7 +61,7 @@ Display of the head of the Dataframe:
 : At least one position has a significantly different average kills in-game
 
 **Test Statistics**
-: The difference in group means kills across all positions
+: The difference in the mean number of kills across all positions
 
 **Signifiance Level**
 : 0.05 or 5%
@@ -64,7 +69,7 @@ Display of the head of the Dataframe:
 The result of running the ANOVA test on 
 
 <iframe
-  src="assets/pos_k.html"
+  src="assets/pos_kills.html"
   width="800"
   height="600"
   frameborder="0"
@@ -72,19 +77,23 @@ The result of running the ANOVA test on
 
 
 ## Framing a Prediction Problem
-**Prediction Problem**
-: Predict the position based on the cspm
+**Prediction Problem:**
+: Predict the position based on the cs
 
-- Type
+- Type:
 : Multiclass Classification
 
-**Response Variable**
+**Response Variable:**
 : Position (Top, Bot, Jungle, Mid, Support)
 
-I chose this variable because each position is unique 
+I chose this variable because each position is unique and contributes to the game differently. Being able to predict the role of the player based on the stats that they generate throughout the game can be valuable in analyzing whether the player has efficiently played their role.
 
-**Metric**
+Creep Score / time prediction the total creep score
+
+**Metric:**
 : Accuracy
+
+I believe that using accuracy as the metric over F1-score is a better choice for this data set because the positions are balanced across the data set with each role per team per game.
 
 
 ## Baseline Model
