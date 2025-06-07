@@ -49,16 +49,16 @@ Display of the head of the Dataframe:
 
 ## Hypothesis Testing
 
-**Null Hypothesis:** 
+**Null Hypothesis** 
 : The average kills in-game are equal across all positions
 
-**Alternative Hypothesis:**
+**Alternative Hypothesis**
 : At least one position has a significantly different average kills in-game
 
-**Test Statistics:**
+**Test Statistics**
 : The difference in group means kills across all positions
 
-**Signifiance Level:**
+**Signifiance Level**
 : 0.05 or 5%
 
 The result of running the ANOVA test on 
@@ -72,18 +72,18 @@ The result of running the ANOVA test on
 
 
 ## Framing a Prediction Problem
-**Prediction Problem:**
+**Prediction Problem**
 : Predict the position based on the cspm
 
-- Type:
+- Type
 : Multiclass Classification
 
-**Response Variable:**
+**Response Variable**
 : Position (Top, Bot, Jungle, Mid, Support)
 
 I chose this variable because each position is unique 
 
-**Metric:**
+**Metric**
 : Accuracy
 
 
