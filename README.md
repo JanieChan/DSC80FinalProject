@@ -64,7 +64,7 @@ Display of the head of the Dataframe:
 The result of running the ANOVA test on 
 
 <iframe
-  src="assets/pos_kills.html"
+  src="assets/pos_k.html"
   width="800"
   height="600"
   frameborder="0"
@@ -72,6 +72,21 @@ The result of running the ANOVA test on
 
 
 ## Framing a Prediction Problem
+**Prediction Problem:**
+: Predict the position based on the cspm
+
+- Type:
+: Multiclass Classification
+
+**Response Variable:**
+: Position (Top, Bot, Jungle, Mid, Support)
+
+I chose this variable because each position is unique 
+
+**Metric:**
+: Accuracy
+
+
 ## Baseline Model
 ## Final Model
 ## Fairness Analysis
