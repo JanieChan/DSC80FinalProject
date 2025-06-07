@@ -45,25 +45,59 @@ Display of the head of the Dataframe:
 | ESPORTSTMNT01_2690210 | sup        |       1 |         42 |            42 |              0 | 1.4711 |
 
 ### Univariate Analysis
+<iframe
+  src="assets/his_kills.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/his_cs.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ### Bivariate Analysis
+<iframe
+  src="assets/scatter_cs_cspm.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/scatter_cs_minions.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ### Interesting Aggregates
+`print(df_grouped[['position', 'kills', 'total cs', 'minionkills', 'monsterkills', 'cspm']].head().to_markdown(index=False))`
+| position   |    kills |   total cs |   minionkills |   monsterkills |    cspm |
+|:-----------|---------:|-----------:|--------------:|---------------:|--------:|
+| bot        | 4.26054  |   278.448  |      256.522  |       22.5487  | 8.8048  |
+| jng        | 3.05698  |   172.999  |       33.613  |      143.207   | 5.62992 |
+| mid        | 3.50398  |   260.71   |      244.071  |       17.1006  | 8.28325 |
+| sup        | 0.874851 |    35.3911 |       34.9547 |        0.44011 | 1.13187 |
+| top        | 2.79644  |   247.337  |      232.63   |       15.1276  | 7.86113 |
 
 ## Assessment of Missingness
 
 ## Hypothesis Testing
 
-**Null Hypothesis** 
+**Null Hypothesis:** 
 : The average kills in-game are equal across all positions
 
-**Alternative Hypothesis**
+**Alternative Hypothesis:**
 : At least one position has a significantly different average kills in-game
 
-**Test Statistics**
+**Test Statistics:**
 : The difference in the mean number of kills across all positions
 
-**Signifiance Level**
+**Signifiance Level:**
 : 0.05 or 5%
 
 The result of running the ANOVA test on 
