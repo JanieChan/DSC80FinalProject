@@ -48,14 +48,14 @@ Display of the head of the Dataframe:
 <iframe
   src="assets/his_kills.html"
   width="800"
-  height="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
 <iframe
   src="assets/his_cs.html"
   width="800"
-  height="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
@@ -76,6 +76,7 @@ Display of the head of the Dataframe:
 
 ### Interesting Aggregates
 `print(df_grouped[['position', 'kills', 'total cs', 'minionkills', 'monsterkills', 'cspm']].head().to_markdown(index=False))`
+
 | position   |    kills |   total cs |   minionkills |   monsterkills |    cspm |
 |:-----------|---------:|-----------:|--------------:|---------------:|--------:|
 | bot        | 4.26054  |   278.448  |      256.522  |       22.5487  | 8.8048  |
@@ -105,10 +106,9 @@ The result of running the ANOVA test on
 <iframe
   src="assets/pos_kills.html"
   width="800"
-  height="600"
+  height="400"
   frameborder="0"
 ></iframe>
-
 
 ## Framing a Prediction Problem
 **Prediction Problem:**
